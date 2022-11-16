@@ -1,9 +1,8 @@
-# game-project-java
-Team development of a project in the Java as part of the course Software Engineering
+# Разработка часов с использованием платы Raspberry Pi 3B+
+Проект, объединяющий аппаратную реализацию и созданную для нее программную реализацию на языке Python
 
-A computer game designed for multiple players
 
-Участники, группа 3530904/00102:
+Разработчики, группа 3530904/00102:
 Бушкина Алёна
 Свайкин Илья
 Столбов Святослав
