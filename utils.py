@@ -11,3 +11,9 @@ def check(allPorts, ioPorts, groundPorts, uselessPorts):
 def clearPorts(ports):
     for i in range(0, 12):
         ports[i].lightOff()
+
+def outForDebug(boolean):
+    if boolean:
+        print(1, end=' ')
+    else:
+        print(0, end=' ')
