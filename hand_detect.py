@@ -24,10 +24,13 @@ def run_until_hand_detected(func):
         # Flip the image(frame)
         img = cv2.flip(img, 1)
 
-        # If hands are present in image(frame)
+        # Convert BGR image to RGB image
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+        # Process the RGB image
         results = hands.process(imgRGB)
 
+        # If hands are present in image(frame)
         if results.multi_hand_landmarks:
             # make some signal TODO
             break
