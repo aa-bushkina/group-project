@@ -13,8 +13,9 @@ def main():
         exit(3)
 
     print(INFO)
-       while True:
-        raw_input = input()  
+    threading.Thread(target=debugInRealTime, args=[ports]).start() # FIXME Раскомментить чтобы видеть статус циферблата в реалтайме
+    while True:
+        raw_input = input()  # читаем команды в формате "команда аргументы"
         parse_input = raw_input.partition(' ')
         func = parse_input[0]
         args = parse_input[2]
