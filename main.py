@@ -1,6 +1,15 @@
 from config import ioPorts, groundPorts, uselessPorts, allPorts, eventForClock
 from utils import *
 
+INFO = "Программа часы:\n" \
+       "help - вывести информацию о функциях программы\n" \
+       "exit - завершить программу\n" \
+       "alarm day hour:minute - поставить будильник на соответствующее время\n" \
+       "Например 21 08:20 -> будильник поставлен на 21 число время 8 часов 20 минут\n" \
+       "sw - время через которое секундомер отключится\n" \
+       "timer minutes:seconds - таймер на указанное время\n" \
+       "clock - просто режим работы часов"  # TODO  дописать доку для своих функций
+
 
 def main():
     check(allPorts, ioPorts, groundPorts, uselessPorts)
