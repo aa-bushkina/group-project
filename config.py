@@ -1,3 +1,5 @@
+import threading
+
 event = threading.Event()
 eventForClock = threading.Event()
 
