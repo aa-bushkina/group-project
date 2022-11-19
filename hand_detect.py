@@ -17,3 +17,4 @@ def run_until_hand_detected():
         #make some signal
         break
     cv2.imshow('Image', img)
+    cv2.waitKey(1)
