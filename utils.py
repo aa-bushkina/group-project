@@ -1,5 +1,6 @@
 import time
 
+
 # Проверка совпадения количества портов с заявленным
 def check(allPorts, ioPorts, groundPorts, uselessPorts):
     if len(allPorts) != 40:
@@ -9,9 +10,12 @@ def check(allPorts, ioPorts, groundPorts, uselessPorts):
         print("Недостаточное количество IO-портов\n")
         exit(1)
 
+
+# Выключение всех лампочек
 def clearPorts(ports):
     for i in range(0, 12):
         ports[i].lightOff()
+
 
 def outForDebug(boolean):
     if boolean:
@@ -19,6 +23,8 @@ def outForDebug(boolean):
     else:
         print(0, end=' ')
 
+
+# Дебагинг портов
 def debugShow(debugPorts):
     if len(debugPorts) != 12:
         print('Чето тут не так переделывай')
@@ -53,6 +59,8 @@ def debugShow(debugPorts):
                 print(' ', end=' ')
         print()
 
+
+# Вывод на экран состояние всех портов всё время
 def debugInRealTime(ports):
     while True:
         debugShow(ports)
