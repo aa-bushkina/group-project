@@ -1,3 +1,4 @@
+import time
 
 # Проверка совпадения количества портов с заявленным
 def check(allPorts, ioPorts, groundPorts, uselessPorts):
@@ -51,3 +52,8 @@ def debugShow(debugPorts):
             else:
                 print(' ', end=' ')
         print()
+
+def debugInRealTime(ports):
+    while True:
+        debugShow(ports)
+        time.sleep(0.4)
