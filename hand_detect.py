@@ -12,3 +12,8 @@ def run_until_hand_detected():
     img = cv2.flip(img, 1)
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = hands.process(imgRGB)
+
+    if results.multi_hand_landmarks:
+        #make some signal
+        break
+    cv2.imshow('Image', img)
