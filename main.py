@@ -1,3 +1,4 @@
+import threading
 from config import ioPorts, groundPorts, uselessPorts, allPorts, eventForClock
 from utils import *
 
@@ -18,7 +19,7 @@ def main():
     for i in range(0, 12):
         ports.append(IoPort(ioPorts[i]))
     if len(ports) != 12:
-        print("err")
+        print("ПОРТОВ МНОГО ИЛИ МАЛО РАЗБЕРИСЬ\n (12)")
         exit(3)
 
     print(INFO)
