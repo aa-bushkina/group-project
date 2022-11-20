@@ -1,10 +1,13 @@
+import threading
+import time
+
 from config import ioPorts, inUsePorts
 
 
 class IoPort(object):
     def __init__(self, numPort):
         if (numPort not in ioPorts) or (numPort in inUsePorts):
-            print("ПОРТ НЕПРАВИЛЬНО УКАЗАН ВСЁ СГОРИТ (Init)\n")
+            print("err\n")
             exit(2)
         self.__ioPort = numPort
         self.__voltage = 0
@@ -15,7 +18,7 @@ class IoPort(object):
 
     def get(self):
         if not (self.__ioPort in inUsePorts):
-            print("ПОРТ НЕПРАВИЛЬНО УКАЗАН ВСЁ СГОРИТ (Get)\n")
+            print("err\n")
             exit(2)
         return self.__ioPort
 
@@ -33,7 +36,7 @@ class IoPort(object):
         self.__lock.acquire()
         try:
             if self.__voltage == 0:
-                print('Два раза выключили одно и то же!!!\n')
+                print('err\n')
             self.__voltage = 0
         # IO.output(self.__ioPort, 0)
         finally:
