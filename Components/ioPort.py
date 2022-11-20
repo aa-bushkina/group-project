@@ -41,3 +41,11 @@ class IoPort(object):
 
     def isLightOn(self):
         return self.__voltage == 1
+
+    def inverse(self):
+        self.__lock.acquire()
+        try:
+            self.__voltage = not self.__voltage
+        finally:
+            self.__lock.release()
+
