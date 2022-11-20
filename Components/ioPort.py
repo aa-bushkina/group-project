@@ -49,3 +49,15 @@ class IoPort(object):
         finally:
             self.__lock.release()
 
+    def blink(self, secs):
+        self.__lock.acquire()
+        try:
+            if self.__voltage == 0:
+                self.__voltage = 1
+            else:
+                return
+        finally:
+            self.__lock.release()
+        time.sleep(secs)
+        self.inverse()
+
