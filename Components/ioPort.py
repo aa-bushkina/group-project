@@ -10,6 +10,8 @@ class IoPort(object):
         self.__voltage = 0
         inUsePorts.append(numPort)
         self.__lock = threading.Lock()
+        # IO.setup(self.__ioPort, IO.OUT)
+        # IO.output(self.__ioPort, self.__voltage)
 
     def get(self):
         if not (self.__ioPort in inUsePorts):
