@@ -4,7 +4,7 @@ from config import ioPorts, inUsePorts
 class IoPort(object):
     def __init__(self, numPort):
         if (numPort not in ioPorts) or (numPort in inUsePorts):
-            print("err")
+            print("ПОРТ НЕПРАВИЛЬНО УКАЗАН ВСЁ СГОРИТ (Init)\n")
             exit(2)
         self.__ioPort = numPort
         self.__voltage = 0
@@ -15,7 +15,7 @@ class IoPort(object):
 
     def get(self):
         if not (self.__ioPort in inUsePorts):
-            print("err")
+            print("ПОРТ НЕПРАВИЛЬНО УКАЗАН ВСЁ СГОРИТ (Get)\n")
             exit(2)
         return self.__ioPort
 
@@ -49,6 +49,7 @@ class IoPort(object):
         finally:
             self.__lock.release()
 
+    # Мигаем светодиодом: зажигаем его на время secs. Потом если возвращаем к первоначальному состоянию
     def blink(self, secs):
         self.__lock.acquire()
         try:
