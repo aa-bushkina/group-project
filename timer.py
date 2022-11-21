@@ -1,0 +1,36 @@
+import threading
+import time
+
+from utils import debugShow, clearPorts
+
+
+def timer(ports, start_minutes, start_seconds):
+    is_first_iteration = True
+    is_equals = False
+    minutes_port = start_minutes
+    sec_port = start_seconds // 5
+    while minutes_port >= 0:
+        if minutes_port != 0:
+            ports[minutes_port].lightOn()
+        while sec_port >= 0:
+            sec = 0
+            sec_delta = 5
+            if is_first_iteration:
+                sec_delta = start_seconds - (start_seconds // 5) * 5
+                is_first_iteration = False
+
+            while sec < sec_delta:
+                ports[sec_port].lightOn()
+                # debugShow(ports)
+                time.sleep(0.3)
+                ports[sec_port].lightOff()
+                time.sleep(0.7)
+                sec = sec + 1
+            sec_port = sec_port - 1
+            if is_equals:
+                ports[minutes_port].lightOn()
+                is_equals = False
+        sec_port = 11
+        if minutes_port != 0:
+            ports[minutes_port].lightOff()
+        minutes_port = minutes_port - 1
