@@ -58,6 +58,10 @@ def timer(ports, start_minutes, start_seconds):
             ports[minutes_port].lightOff()
         minutes_port = minutes_port - 1
 
+    print("помашите рукой")
+
+    threading.Timer(interval=1, function=run_until_hand_detected, args=[lambda: endOfTimer(ports)]).start()
+
 
 def endOfTimer(ports):
     blink_interval = 0.3
