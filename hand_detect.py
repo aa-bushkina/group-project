@@ -3,6 +3,7 @@ import threading
 import cv2
 import mediapipe as mp
 
+from config import event, eventForClock
 
 # Run it in a separate thread
 def run_until_hand_detected(func):
@@ -32,7 +33,8 @@ def run_until_hand_detected(func):
 
         # If hands are present in image(frame)
         if results.multi_hand_landmarks:
-            # make some signal TODO
+            event.set()
+            eventForClock.set()
             break
         # cv2.imshow('Image', img)
         cv2.waitKey(1)
