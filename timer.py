@@ -1,6 +1,8 @@
 import threading
 import time
 
+from config import event, eventForClock
+from hand_detect import run_until_hand_detected
 from utils import debugShow, clearPorts
 
 
@@ -55,3 +57,16 @@ def timer(ports, start_minutes, start_seconds):
         if minutes_port != 0:
             ports[minutes_port].lightOff()
         minutes_port = minutes_port - 1
+
+
+def endOfTimer(ports):
+    blink_interval = 0.3
+    delay_next = 0.1
+    while not event.isSet():
+        for port in ports:
+            threading.Thread(target=port.blink, args=[blink_interval]).start()
+            time.sleep(delay_next)
+    event.clear()
+    eventForClock.clear()
+    clearPorts(ports)
+    print("конец таймера")
