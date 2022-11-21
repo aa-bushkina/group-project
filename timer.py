@@ -5,6 +5,15 @@ from utils import debugShow, clearPorts
 
 
 def timer(ports, start_minutes, start_seconds):
+    if type(start_minutes) != int or type(start_seconds) != int:
+        print("НЕКОРРЕКТНОЕ ЧИСЛО")
+        return
+    if start_minutes < 0 or start_minutes > 11:
+        print("НЕКОРРЕКТНОЕ КОЛИЧЕСТВО МИНУТ")
+        return
+    if start_seconds < 0 or start_seconds > 59:
+        print("НЕКОРРЕКТНОЕ КОЛИЧЕСТВО СЕКУНД")
+        return
     is_first_iteration = True
     is_equals = False
     minutes_port = start_minutes
