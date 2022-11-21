@@ -18,9 +18,21 @@ def timer(ports, start_minutes, start_seconds):
             if is_first_iteration:
                 sec_delta = start_seconds - (start_seconds // 5) * 5
                 is_first_iteration = False
-
-            while sec < sec_delta:
-                ports[sec_port].lightOn()
+            if sec_port == minutes_port and minutes_port != 0:
+                num_iter = 0
+                while sec < sec_delta:
+                    if num_iter != 0:
+                        ports[sec_port].lightOn()
+                    num_iter = num_iter + 1
+                    is_equals = True
+                    # debugShow(ports)
+                    time.sleep(0.3)
+                    ports[sec_port].lightOff()
+                    time.sleep(0.7)
+                    sec = sec + 1
+            else:
+                while sec < sec_delta:
+                    ports[sec_port].lightOn()
                 # debugShow(ports)
                 time.sleep(0.3)
                 ports[sec_port].lightOff()
