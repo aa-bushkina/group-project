@@ -21,4 +21,6 @@ def startClock(io_ports_for_clock):
             ioPorts[math.floor(minuteNow / 5)].lightOff()
         minuteNow = datetime.datetime.now().time().minute
         hourNow = datetime.datetime.now().time().hour
-
+    event.clear()
+    eventForClock.clear()
+    clearPorts(io_ports_for_clock)
