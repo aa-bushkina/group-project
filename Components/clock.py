@@ -17,8 +17,10 @@ def startClock(io_ports_for_clock):
             ioPorts[hourNow % 12].lightOn()
         if hourNow % 12 != math.floor(minuteNow / 5):
             ioPorts[math.floor(minuteNow / 5)].lightOn()
+        time.sleep(0.5)
         if hourNow % 12 != math.floor(minuteNow / 5):
             ioPorts[math.floor(minuteNow / 5)].lightOff()
+        time.sleep(0.5)
         minuteNow = datetime.datetime.now().time().minute
         hourNow = datetime.datetime.now().time().hour
     event.clear()
