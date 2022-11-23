@@ -29,3 +29,8 @@ def secundomer(ports, timetostop):
                     clearPorts(ports)
                     print("Конец секундомера")
                     return
+
+
+def stopwatch(ports, timeToStop):
+    threading.Timer(interval=1, function=run_until_hand_detected, args=[lambda: secundomer(ports, timeToStop)]).start()
+    print("Помашите рукой если хотите остановить секундомер")
