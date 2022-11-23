@@ -3,7 +3,7 @@ import time
 
 from config import event, eventForClock
 from hand_detect import run_until_hand_detected
-from utils import debugShow, clearPorts
+from utils import clearPorts
 
 
 def secundomer(ports, timetostop):
@@ -12,19 +12,20 @@ def secundomer(ports, timetostop):
         for i in range(0, 12):
             for j in range(0, 5):
                 ports[i].lightOn()
-                debugShow(ports)
+                print(sec)
                 time.sleep(0.5)
                 sec += 1
                 ports[i].lightOff()
                 time.sleep(0.5)
-                debugShow(ports)
                 if sec == timetostop:
                     event.clear()
                     eventForClock.clear()
                     clearPorts(ports)
+                    print("Конец секундомера")
                     return
                 if event.isSet():
                     event.clear()
                     eventForClock.clear()
                     clearPorts(ports)
+                    print("Конец секундомера")
                     return
