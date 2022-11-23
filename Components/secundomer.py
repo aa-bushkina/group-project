@@ -23,3 +23,8 @@ def secundomer(ports, timetostop):
                     eventForClock.clear()
                     clearPorts(ports)
                     return
+                if event.isSet():
+                    event.clear()
+                    eventForClock.clear()
+                    clearPorts(ports)
+                    return
