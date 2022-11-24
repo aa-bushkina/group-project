@@ -5,14 +5,12 @@ import mediapipe as mp
 
 from config import event, eventForClock
 
-# Run it in a separate thread
+
 def run_until_hand_detected(func):
-    # Initializing the Model
     mpHands = mp.solutions.hands
     hands = mpHands.Hands(static_image_mode=False, model_complexity=1, min_detection_confidence=0.75,
                           min_tracking_confidence=0.75, max_num_hands=2)
-
-    # Start capturing video from webcam
+    Start capturing video from webcam
     cap = cv2.VideoCapture(0)
 
     print(f"Запустили функцию, которая выключается по обнаружению руки")
