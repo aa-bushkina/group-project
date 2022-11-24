@@ -13,8 +13,8 @@ class IoPort(object):
         self.__voltage = 0
         inUsePorts.append(numPort)
         self.__lock = threading.Lock()
-        # IO.setup(self.__ioPort, IO.OUT)
-        # IO.output(self.__ioPort, self.__voltage)
+        IO.setup(self.__ioPort, IO.OUT)
+        IO.output(self.__ioPort, self.__voltage)
 
     def get(self):
         if not (self.__ioPort in inUsePorts):
@@ -28,7 +28,7 @@ class IoPort(object):
             if self.__voltage == 1:
                 print('Два раза зажгли одно и то же!!!\n')
             self.__voltage = 1
-            # IO.output(self.__ioPort, self.__voltage)
+            IO.output(self.__ioPort, self.__voltage)
         finally:
             self.__lock.release()
 
@@ -38,7 +38,7 @@ class IoPort(object):
             if self.__voltage == 0:
                 print('err\n')
             self.__voltage = 0
-        # IO.output(self.__ioPort, 0)
+        IO.output(self.__ioPort, 0)
         finally:
             self.__lock.release()
 
@@ -52,7 +52,6 @@ class IoPort(object):
         finally:
             self.__lock.release()
 
-    # Мигаем светодиодом: зажигаем его на время secs. Потом если возвращаем к первоначальному состоянию
     def blink(self, secs):
         self.__lock.acquire()
         try:

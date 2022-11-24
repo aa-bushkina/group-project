@@ -4,9 +4,6 @@ import time
 
 from config import event, eventForClock
 from hand_detect import run_until_hand_detected
-
-#   Устанавливает будильник. alarm_time -
-#   строка формата "день час:минута", например, "17 23:12".
 from utils import clearPorts
 
 
