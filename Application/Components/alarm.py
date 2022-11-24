@@ -18,6 +18,8 @@ def setUpAlarm(ports, alarm_time_raw):
         print(f"Будильник: неправильно передано время {alarm_time_parsed}")
         return
     print(f"Будильник: успешно установлен на время {alarm_time}. Зазвонит через {delay.total_seconds()} сек")
+    #threading.Thread().start() #FIXME пример запуска вашей функции с выключением по взмаху руки
+    threading.Timer(interval=delay.total_seconds(), function=run_until_hand_detected, args=[lambda: alarm(ports)]).start()
 
 def alarm(ports):
     blink_interval = 0.3
