@@ -1,4 +1,11 @@
+import RPi.GPIO as IO
 import threading
+from components import timer
+from components.IoPort import IoPort
+from components.alarm import setUpAlarm
+from components.clock import doClock
+from components.timer import timer
+from components.secundomer import stopwatch
 from config import ioPorts, groundPorts, uselessPorts, allPorts, eventForClock
 from utils import *
 
@@ -11,10 +18,9 @@ INFO = "Программа часы:\n" \
        "timer minutes:seconds - таймер на указанное время\n" \
        "clock - просто режим работы часов"
 
-
 def main():
     check(allPorts, ioPorts, groundPorts, uselessPorts)
-    # IO.setmode(IO.BOARD)
+    IO.setmode(IO.BOARD)
     ports = []
     for i in range(0, 12):
         ports.append(IoPort(ioPorts[i]))
@@ -23,7 +29,7 @@ def main():
         exit(3)
 
     print(INFO)
-    threading.Thread(target=debugInRealTime, args=[ports]).start() # FIXME Раскомментить чтобы видеть статус циферблата в реалтайме
+    threading.Thread(target=debugInRealTime, args=[ports]).start()
     while True:
         raw_input = input()  # читаем команды в формате "команда аргументы"
         parse_input = raw_input.partition(' ')
