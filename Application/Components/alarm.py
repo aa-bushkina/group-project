@@ -14,6 +14,10 @@ def setUpAlarm(ports, alarm_time_raw):
     else:
         alarm_time = alarm_time_raw
     delay = alarm_time - datetime.datetime.now()
+    if delay.total_seconds() < 0:
+        print(f"Будильник: неправильно передано время {alarm_time_parsed}")
+        return
+    print(f"Будильник: успешно установлен на время {alarm_time}. Зазвонит через {delay.total_seconds()} сек")
 
 def alarm(ports):
     blink_interval = 0.3
