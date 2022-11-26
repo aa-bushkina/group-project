@@ -10,6 +10,8 @@ threading, cv2, mediapipe
 ###Project
 //TODO
 
+![diagram (1)](https://user-images.githubusercontent.com/77066690/204108643-c754db78-b47f-41d2-86a9-e1cc957409ef.png)
+
 ###Program
 Three threads initially work in parallel in the program. One is responsible for viewing the commands entered, the second for executing the previous command, the third for the camera, which constantly scans the space for the presence of a human hand.
 
@@ -51,3 +53,5 @@ The finished model has the following functions:
 - Alarm clock 
 
 The operating mode is selected dynamically during the operation of the program, it is possible to stop the called signals using a hand movement recorded by the camera
+<img width="573" alt="Model" src="https://user-images.githubusercontent.com/77066690/204108803-c2dfd9d7-72f0-4dc3-8288-27fc201ba913.png">
+
