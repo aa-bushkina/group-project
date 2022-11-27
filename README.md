@@ -19,8 +19,6 @@ The connection diagram can be seen below:
 
 ![diagram (1)](https://user-images.githubusercontent.com/77066690/204109025-7471008a-0a2e-4d9a-8c22-44c97a398b85.jpg)
 
-
-
 ### Program
 
 Three threads initially work in parallel in the program. One is responsible for viewing the commands entered, the second for executing the previous command, the third for the camera, which constantly scans the space for the presence of a human hand.
@@ -36,7 +34,13 @@ Commands in the program:
 - sw - setting the stopwatch
 
 ### Block diagram
-//TODO
+The first level describes the interaction between the user 
+and the program. She, in turn, is already working with the 
+hardware implementation and external devices.
+
+![diagram (1)](picture/C4lvl1.png)
+
+
 
 ### Main libraries used
 With the help of mediapipe and cv2 libraries, it is possible to stop functions using a hand movement.
