@@ -8,9 +8,18 @@ threading, cv2, mediapipe
 - Stolbov Svyatoslav
 
 ### Project
-//TODO
+As mentioned above, our project combines hardware implementation with software. 
+For the hardware implementation, we chose the Raspberry Pi 3 Model B+ board, as the 
+only one available to us. For the project to work, we also needed some external 
+devices: a camera (Anti-glare Model: PK-635G), a keyboard, a monitor, and a mouse.
+
+To assemble the clock itself, we used LEDs, resistors, Dupont cables, a breadboard 
+and a soldering iron to connect all the parts. 
+The connection diagram can be seen below:
 
 ![diagram (1)](https://user-images.githubusercontent.com/77066690/204109025-7471008a-0a2e-4d9a-8c22-44c97a398b85.jpg)
+
+
 
 ### Program
 
