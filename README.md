@@ -19,6 +19,22 @@ The connection diagram can be seen below:
 
 ![diagram (1)](https://user-images.githubusercontent.com/77066690/204109025-7471008a-0a2e-4d9a-8c22-44c97a398b85.jpg)
 
+Schematically, the LEDs are located on the breadboard as follows:
+
+![diagram (4)](picture/LEDs.png)
+
+The interpretation of the clock will be a circle of 12 LEDs placed 
+in a circle on the breadboard in accordance with the arrangement of 
+numbers on a standard clock. A burning light means the number of hours 
+(minutes), a flashing light means the number of minutes (seconds) 
+depending on the selected operating mode of the unit. The operating 
+mode of the system is selected dynamically while the program is running.
+
+All work with external devices is done through the motherboard. 
+The camera, keyboard and mouse are connected via USB, the monitor 
+via HDMI using a VGA-HDMI adapter. LEDs connected via resistors use
+GPIO pins to "communicate" with the motherboard.
+
 ### Program
 
 Three threads initially work in parallel in the program. One is responsible for viewing the commands entered, the second for executing the previous command, the third for the camera, which constantly scans the space for the presence of a human hand.
@@ -43,7 +59,7 @@ hardware implementation and external devices.
 At the second level, we described in more detail the interaction between software, 
 hardware implementations and the user.
 
-![diagram (2)](picture/c4lvl2.png)
+![diagram (3)](picture/c4lvl2.png)
 
 
 ### Main libraries used
