@@ -38,8 +38,12 @@ The first level describes the interaction between the user
 and the program. She, in turn, is already working with the 
 hardware implementation and external devices.
 
-![diagram (1)](picture/C4lvl1.png)
+![diagram (2)](picture/C4lvl1.png)
 
+At the second level, we described in more detail the interaction between software, 
+hardware implementations and the user.
+
+![diagram (2)](picture/c4lvl2.png)
 
 
 ### Main libraries used
