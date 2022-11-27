@@ -21,7 +21,7 @@ The connection diagram can be seen below:
 
 Schematically, the LEDs are located on the breadboard as follows:
 
-![diagram (4)](picture/LEDs.png)
+![diagram (4)](picture/LEds.png)
 
 The interpretation of the clock will be a circle of 12 LEDs placed 
 in a circle on the breadboard in accordance with the arrangement of 
