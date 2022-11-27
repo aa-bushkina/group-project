@@ -8,9 +8,32 @@ threading, cv2, mediapipe
 - Stolbov Svyatoslav
 
 ### Project
-//TODO
+As mentioned above, our project combines hardware implementation with software. 
+For the hardware implementation, we chose the Raspberry Pi 3 Model B+ board, as the 
+only one available to us. For the project to work, we also needed some external 
+devices: a camera (Anti-glare Model: PK-635G), a keyboard, a monitor, and a mouse.
+
+To assemble the clock itself, we used LEDs, resistors, Dupont cables, a breadboard 
+and a soldering iron to connect all the parts. 
+The connection diagram can be seen below:
 
 ![diagram (1)](https://user-images.githubusercontent.com/77066690/204109025-7471008a-0a2e-4d9a-8c22-44c97a398b85.jpg)
+
+Schematically, the LEDs are located on the breadboard as follows:
+
+![diagram (4)](picture/LEds.png)
+
+The interpretation of the clock will be a circle of 12 LEDs placed 
+in a circle on the breadboard in accordance with the arrangement of 
+numbers on a standard clock. A burning light means the number of hours 
+(minutes), a flashing light means the number of minutes (seconds) 
+depending on the selected operating mode of the unit. The operating 
+mode of the system is selected dynamically while the program is running.
+
+All work with external devices is done through the motherboard. 
+The camera, keyboard and mouse are connected via USB, the monitor 
+via HDMI using a VGA-HDMI adapter. LEDs connected via resistors use
+GPIO pins to "communicate" with the motherboard.
 
 ### Program
 
@@ -27,7 +50,17 @@ Commands in the program:
 - sw - setting the stopwatch
 
 ### Block diagram
-//TODO
+The first level describes the interaction between the user 
+and the program. She, in turn, is already working with the 
+hardware implementation and external devices.
+
+![diagram (2)](picture/C4lvl1.png)
+
+At the second level, we described in more detail the interaction between software, 
+hardware implementations and the user.
+
+![diagram (3)](picture/c4lvl2.png)
+
 
 ### Main libraries used
 With the help of mediapipe and cv2 libraries, it is possible to stop functions using a hand movement.
